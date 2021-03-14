@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView textView;
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     String BerechnungsWert = textView.getText().toString();
     char [] BerechnungsArray = BerechnungsWert.toCharArray();
 
-    String rueckgabewert = "";
+
 
         char [] ErgebnisArray = new char [7];
 
@@ -83,10 +85,12 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
-        rueckgabewert.concat(String.valueOf(ErgebnisArray));
+
+        String rueckgabewert = new String (ErgebnisArray);
+
 
      AlertDialog.Builder popFenster = new AlertDialog.Builder(this);
-    popFenster.setTitle("Antwort vom Server");
+    popFenster.setTitle("Antwort vom Server" );
     popFenster.setMessage(rueckgabewert);
        popFenster.setCancelable(true);
        AlertDialog showFenster = popFenster.show();

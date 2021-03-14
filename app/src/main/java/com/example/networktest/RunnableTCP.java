@@ -28,7 +28,7 @@ class RunnableTCP implements Runnable {
 
             //Eingabe = inFromUser.readLine();
 
-            outToServer.writeBytes(Eingabe + '\n');
+            outToServer.writeBytes(String.valueOf(Integer.parseInt(Eingabe+'\n')));
 
             NutzerVariable = inFromServer.readLine();
 
