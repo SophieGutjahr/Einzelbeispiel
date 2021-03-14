@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-class RunnableTCP implements Runnable {
+public class RunnableTCP implements Runnable {
 
     String Eingabe;
     String NutzerVariable;
@@ -28,7 +28,7 @@ class RunnableTCP implements Runnable {
 
             //Eingabe = inFromUser.readLine();
 
-            outToServer.writeBytes(String.valueOf(Integer.parseInt(Eingabe+'\n')));
+            outToServer.writeBytes(Eingabe+'\n');
 
             NutzerVariable = inFromServer.readLine();
 

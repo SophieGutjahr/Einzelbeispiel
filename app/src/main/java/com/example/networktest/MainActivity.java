@@ -1,21 +1,20 @@
 package com.example.networktest;
 
-import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+
 
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView textView;
-    String returnValue;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +28,15 @@ public class MainActivity extends AppCompatActivity {
         RunnableTCP runnable = new RunnableTCP(textView.getText().toString());
 
         new Thread(runnable).start();
-        Thread.sleep(500);
+        Thread.sleep(400);
 
         AlertDialog.Builder popFenster = new AlertDialog.Builder(this);
-        returnValue = runnable.NutzerVariable;
-
 
         popFenster.setTitle("Antwort vom Server");
-        popFenster.setMessage(returnValue);
+        popFenster.setMessage(runnable.NutzerVariable);
         popFenster.setCancelable(true);
 
-        AlertDialog showFenster = popFenster.show();
+        AlertDialog showFenster = popFenster.create();
         showFenster.show();
     }
 
@@ -53,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        char [] ErgebnisArray = new char [7];
+        char [] ErgebnisArray = new char [8];
 
 
         if (BerechnungsArray[0]=='2'|| BerechnungsArray[0]=='3' || BerechnungsArray[0]=='5'|| BerechnungsArray[0]=='7' ){
@@ -80,11 +77,6 @@ public class MainActivity extends AppCompatActivity {
         if (BerechnungsArray[7]=='2'|| BerechnungsArray[7]=='3' || BerechnungsArray[7]=='5'|| BerechnungsArray[7]=='7' ){
             ErgebnisArray[7]=BerechnungsArray[7];
         }
-        for(int i = 0; i<ErgebnisArray.length; i++){
-            if (ErgebnisArray[i]!= '0'){
-
-            }
-        }
 
         String rueckgabewert = new String (ErgebnisArray);
 
@@ -93,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     popFenster.setTitle("Antwort vom Server" );
     popFenster.setMessage(rueckgabewert);
        popFenster.setCancelable(true);
-       AlertDialog showFenster = popFenster.show();
+       AlertDialog showFenster = popFenster.create();
        showFenster.show();
     }
 }
