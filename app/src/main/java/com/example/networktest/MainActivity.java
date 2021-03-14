@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         new Thread(runnable).start();
         Thread.sleep(500);
+
         AlertDialog.Builder popFenster = new AlertDialog.Builder(this);
         returnValue = runnable.NutzerVariable;
 
